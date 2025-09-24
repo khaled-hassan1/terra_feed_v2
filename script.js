@@ -389,7 +389,7 @@ function enhanceAccessibility() {
     position: absolute;
     top: -40px;
     left: 6px;
-    background: var(--primary);
+    
     color: white;
     padding: 8px;
     text-decoration: none;
