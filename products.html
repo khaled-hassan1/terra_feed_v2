@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منتجاتنا - TerraFeed</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script defer src="products.js"></script>
+</head> 
+<body>
+
+    <header class="navbar">
+        <div class="container">
+          <h1 class="logo">
+            <a href="/index.html"><img src="images/logo.png" alt="TerraFeed" class="logo-img"></a>
+          </h1>
+          <button class="hamburger" id="hamburger-btn"><span></span><span></span><span></span></button>
+          <nav id="navbar-menu"> 
+            <ul>
+              <li><a href="/index.html">الرئيسية</a></li>
+              <li><a href="/products.html" class="active">منتجاتنا</a></li>
+              <li><a href="https://store.terrafeed.sa">المتجر</a></li>
+              <li><a href="/about_us.html">من نحن</a></li>
+              <li><a href="/contact.html">تواصل معنا</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+<div class="products-page">
+
+  <!-- Header Section -->
+  <section class="products-header">
+    <h1 class="products-title">منتجاتنا</h1>
+    <p class="products-subtitle">اكتشف مجموعتنا الواسعة من البهارات والخلطات المميزة</p>
+
+    <div class="products-filters">
+      <input type="text" id="searchBox" placeholder="🔍 ابحث عن منتج..." />
+      <div id="categoryFilters" class="category-filters">
+        <!-- JS will inject category filter buttons -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Container -->
+  <section id="products-container">
+    <!-- JS will inject product categories & cards here -->
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2025 TerraFeed - جميع الحقوق محفوظة</p>
+</footer>
+
+</body>
+</html>

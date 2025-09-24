@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TerraFeed - متجر البهارات الفاخر</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+
+<body>
+
+  <!-- 🔝 Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">
+        <a href="/"><img src="images/logo.png" alt="TerraFeed" class="logo-img"></a>
+      </h1>
+      <button class="hamburger" id="hamburger-btn"><span></span><span></span><span></span></button>      <nav id="navbar-menu">
+        <ul>
+          <li><a href="/index.html" class="active">الرئيسية</a></li>
+          <li><a href="/products.html">منتجاتنا</a></li>
+          <li><a href="https://store.terrafeed.sa" target="_blank">المتجر</a></li>
+          <li><a href="/about_us.html">من نحن</a></li>
+          <li><a href="/contact.html">تواصل معنا</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 🎥 Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content" data-aos="fade-up">
+      <h1>نكهات أصلية • جودة مميزة</h1>
+      <p>تسوق أجود أنواع البهارات والخلطات المبتكرة لتجعل كل وجبة تجربة فاخرة.</p>
+      <a href="/products.html" class="btn-primary">تسوق الآن</a>
+    </div>
+    <div class="carousel">
+      <div class="slide active" style="background-image:url('images/1.png')"></div>
+      <div class="slide" style="background-image:url('images/2.png')"></div>
+      <div class="slide" style="background-image:url('images/3.png')"></div>
+    </div>
+  </section>
+
+  <!-- 🌟 Our Promise Section -->
+  <section class="values" data-aos="fade-up">
+    <div class="values-grid">
+      <div class="value-card">
+        <i class="fas fa-seedling"></i>
+        <h3>مكونات طبيعية</h3>
+        <p>نضمن أن كل منتج لدينا مصنوع من أفضل المكونات الطبيعية الخالصة.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-star"></i>
+        <h3>جودة عالمية</h3>
+        <p>مطابقة لأعلى معايير الجودة لضمان تجربة طهي مميزة.</p>
+      </div>
+      <div class="value-card">
+        <i class="fas fa-truck-fast"></i>
+        <h3>توصيل سريع</h3>
+        <p>شبكة توزيع تضمن وصول منتجاتنا طازجة وفي الوقت المناسب.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🏪 Main Categories -->
+  <section class="categories" data-aos="fade-up">
+    <h2 class="section-title">الأصناف الرئيسية</h2>
+    <div class="category-grid">
+      <div class="category-card">
+        <img src="images/whole.png" alt="رواد الأعمال">
+        <h3>رواد الأعمال</h3>
+      </div>
+      <div class="category-card">
+        <img src="images/house.png" alt="ست البيت">
+        <h3>ست البيت</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🛒 Featured Products -->
+  <section class="featured" data-aos="fade-up">
+    <h2 class="section-title">منتجات مميزة</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="images/product1.jpeg" alt="بهارات الكبسة">
+        <div class="product-info">
+          <h3>بهارات الكبسة</h3>
+          <p>خلطة أصيلة لطبق الكبسة المثالي</p>
+          <a href="/products.html" class="btn-secondary">اعرف المزيد</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="images/product2.jpg" alt="بهارات الفاهيتا">
+        <div class="product-info">
+          <h3>بهارات الفاهيتا</h3>
+          <p>نكهة مكسيكية غنية لعشاق الطعم القوي</p>
+          <a href="/products.html" class="btn-secondary">اعرف المزيد</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="images/product3.jpg" alt="بهارات السمك">
+        <div class="product-info">
+          <h3>بهارات السمك</h3>
+          <p>تتبيلة فاخرة لأطباق المأكولات البحرية</p>
+          <a href="/products.html" class="btn-secondary">اعرف المزيد</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 💡 Cooking Tips / Blog -->
+  <section class="blog" data-aos="fade-up">
+    <h2 class="section-title">نصائح الطهي</h2>
+    <div class="blog-grid">
+      <article class="blog-card">
+        <h3>أفضل طرق استخدام الكركم</h3>
+        <p>تعرف على فوائد الكركم وكيفية إضافته لوجباتك اليومية.</p>
+        <a href="#">اقرأ المزيد</a>
+      </article>
+      <article class="blog-card">
+        <h3>أسرار بهارات الشواء</h3>
+        <p>خليط مثالي لتجعل جلسات الشواء أكثر تميزاً.</p>
+        <a href="#">اقرأ المزيد</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- 💬 Testimonials -->
+  <section class="testimonials" data-aos="fade-up">
+    <h2 class="section-title">ماذا يقول عملاؤنا</h2>
+    <div class="testimonial-slider">
+      <blockquote>"أفضل بهارات على الإطلاق! نكهة لا مثيل لها." - عميل سعيد</blockquote>
+      <blockquote>"منتجات TerraFeed غيرت مطبخي بالكامل." - شيف محترف</blockquote>
+    </div>
+  </section>
+
+  <!-- 📢 CTA -->
+  <section class="cta" data-aos="zoom-in">
+    <h2>اشترك في نشرتنا البريدية</h2>
+    <p>واصلك أحدث العروض والمنتجات مباشرة إلى بريدك.</p>
+    <form class="newsletter">
+      <input type="email" placeholder="ادخل بريدك الإلكتروني">
+      <button type="submit">اشترك الآن</button>
+    </form>
+  </section>
+
+  <!-- 🔻 Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h4>عن TerraFeed</h4>
+        <p>نقدم أجود أنواع البهارات والخلطات الطبيعية لتجعل كل وجبة تجربة فاخرة.</p>
+      </div>
+      <div>
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="/about_us.html">من نحن</a></li>
+          <li><a href="/products.html">منتجاتنا</a></li>
+          <li><a href="/contact.html">تواصل معنا</a></li>
+        </ul>
+      </div> 
+      <div>
+        <h4>تابعنا</h4>
+        <div class="social">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2025 TerraFeed - جميع الحقوق محفوظة</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>AOS.init({ duration: 900, once: true });</script>
+  <script src="script.js"></script>
+</body>
+
+</html>
