@@ -10,15 +10,15 @@
   --bg-light: #fefefe;
   --bg-section: #f8fafc;
   --white: #ffffff;
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
-  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
-  --shadow-xl: 0 12px 40px rgba(0,0,0,0.15);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.15);
   --border-radius: 16px;
   --border-radius-lg: 24px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  --gradient-hero: linear-gradient(135deg, rgba(212,175,55,0.9), rgba(184,148,31,0.9));
+  --gradient-hero: linear-gradient(135deg, rgba(212, 175, 55, 0.9), rgba(184, 148, 31, 0.9));
 }
 
 body {
@@ -315,6 +315,7 @@ footer a {
   gap: 30px;
   margin: 40px 0;
 }
+
 .contact-card {
   background: var(--white);
   border-radius: var(--border-radius-lg);
@@ -448,7 +449,6 @@ footer a {
   position: absolute;
   inset: 0;
   background: url('images/about-hero.jpg') center/cover no-repeat;
-  opacity: 0.3;
 }
 
 .about-hero-content {
@@ -465,8 +465,15 @@ footer a {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .about-hero-content h1 {
@@ -614,7 +621,7 @@ footer a {
   text-align: center;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .about-feature-card:hover {
@@ -1622,7 +1629,7 @@ nav a.active::after {
   padding: 40px 24px;
   text-align: center;
   transition: var(--transition);
-  border: 1px solid rgba(255,255,255,0.8);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   position: relative;
   overflow: hidden;
 }
@@ -1941,4 +1948,78 @@ footer {
     gap: 15px;
     padding: 15px;
   }
+}
+
+.lang-switch {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  color: var(--primary-color, #a86b32);
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  order: 3;
+  min-width: 60px;
+  text-align: center;
+  outline: none;
+  white-space: nowrap;
+}
+
+.lang-switch:hover {
+  background-color: rgba(248, 248, 248, 0.95);
+  border-color: var(--primary-color, #a86b32);
+  color: var(--primary-color, #a86b32);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lang-switch:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.lang-switch:focus {
+  outline: 2px solid var(--primary-color, #a86b32);
+  outline-offset: 2px;
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .lang-switch {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.9);
+    order: 3;
+  }
+
+  .lang-switch:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color, #a86b32);
+    color: var(--primary-color, #a86b32);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .lang-switch {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    min-width: 50px;
+    order: 3;
+  }
+}
+
+/* Hamburger button spacing adjustment */
+.hamburger {
+  margin: 0 12px;
+  order: 4;
+  /* Ensure proper ordering */
+}
+
+/* Optional: Add some spacing between navigation items */
+.navigation-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }

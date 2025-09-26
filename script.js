@@ -8,21 +8,21 @@ let lastScrollY = window.scrollY;
 
 window.addEventListener('scroll', () => {
   const currentScrollY = window.scrollY;
-  
+
   // Add scrolled class for styling
   if (currentScrollY > 50) {
     navbar.classList.add('scrolled');
   } else {
     navbar.classList.remove('scrolled');
   }
-  
+
   // Hide/show navbar on scroll
   if (currentScrollY > lastScrollY && currentScrollY > 100) {
     navbar.style.transform = 'translateY(-100%)';
   } else {
     navbar.style.transform = 'translateY(0)';
   }
-  
+
   lastScrollY = currentScrollY;
 });
 
@@ -30,7 +30,7 @@ window.addEventListener('scroll', () => {
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('open');
   menu.classList.toggle('open');
-  
+
   // Prevent body scroll when menu is open
   if (menu.classList.contains('open')) {
     document.body.style.overflow = 'hidden';
@@ -67,11 +67,11 @@ if (slides.length > 0) {
   function nextSlide() {
     if (isTransitioning) return;
     isTransitioning = true;
-    
+
     slides[currentSlide].classList.remove("active");
     currentSlide = (currentSlide + 1) % slides.length;
     slides[currentSlide].classList.add("active");
-    
+
     setTimeout(() => {
       isTransitioning = false;
     }, 1200);
@@ -80,11 +80,11 @@ if (slides.length > 0) {
   function prevSlide() {
     if (isTransitioning) return;
     isTransitioning = true;
-    
+
     slides[currentSlide].classList.remove("active");
     currentSlide = (currentSlide - 1 + slides.length) % slides.length;
     slides[currentSlide].classList.add("active");
-    
+
     setTimeout(() => {
       isTransitioning = false;
     }, 1200);
@@ -112,7 +112,7 @@ if (slides.length > 0) {
     carousel.addEventListener('touchend', (e) => {
       endX = e.changedTouches[0].clientX;
       const diff = startX - endX;
-      
+
       if (Math.abs(diff) > 50) {
         if (diff > 0) {
           nextSlide();
@@ -120,7 +120,7 @@ if (slides.length > 0) {
           prevSlide();
         }
       }
-      
+
       startSlideshow();
     });
 
@@ -138,29 +138,29 @@ const newsletterForm = document.querySelector('.newsletter');
 if (newsletterForm) {
   newsletterForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     const email = newsletterForm.querySelector('input[type="email"]').value;
     const button = newsletterForm.querySelector('button');
     const originalText = button.textContent;
-    
+
     // Validate email
     if (!isValidEmail(email)) {
       showNotification('يرجى إدخال بريد إلكتروني صحيح', 'error');
       return;
     }
-    
+
     // Show loading state
     button.textContent = 'جاري الإرسال...';
     button.disabled = true;
-    
+
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 2000));
-      
+
       // Success
       showNotification('تم الاشتراك بنجاح! شكراً لك', 'success');
       newsletterForm.reset();
-      
+
     } catch (error) {
       showNotification('حدث خطأ، يرجى المحاولة مرة أخرى', 'error');
     } finally {
@@ -181,7 +181,7 @@ function showNotification(message, type = 'info') {
   // Remove existing notifications
   const existingNotifications = document.querySelectorAll('.notification');
   existingNotifications.forEach(notification => notification.remove());
-  
+
   const notification = document.createElement('div');
   notification.className = `notification notification-${type}`;
   notification.innerHTML = `
@@ -191,7 +191,7 @@ function showNotification(message, type = 'info') {
       <button class="notification-close">&times;</button>
     </div>
   `;
-  
+
   // Styles
   Object.assign(notification.style, {
     position: 'fixed',
@@ -209,14 +209,14 @@ function showNotification(message, type = 'info') {
     fontSize: '14px',
     fontWeight: '600'
   });
-  
+
   const content = notification.querySelector('.notification-content');
   Object.assign(content.style, {
     display: 'flex',
     alignItems: 'center',
     gap: '12px'
   });
-  
+
   const closeBtn = notification.querySelector('.notification-close');
   Object.assign(closeBtn.style, {
     background: 'none',
@@ -226,20 +226,20 @@ function showNotification(message, type = 'info') {
     cursor: 'pointer',
     marginLeft: 'auto'
   });
-  
+
   document.body.appendChild(notification);
-  
+
   // Animate in
   setTimeout(() => {
     notification.style.transform = 'translateX(0)';
   }, 100);
-  
+
   // Close functionality
   closeBtn.addEventListener('click', () => {
     notification.style.transform = 'translateX(400px)';
     setTimeout(() => notification.remove(), 300);
   });
-  
+
   // Auto remove after 5 seconds
   setTimeout(() => {
     if (notification.parentNode) {
@@ -274,13 +274,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Enhanced Loading Animation
 window.addEventListener('load', () => {
   document.body.classList.add('loaded');
-  
+
   // Animate elements on load
   const animateElements = document.querySelectorAll('.value-card, .category-card, .product-card, .blog-card');
   animateElements.forEach((element, index) => {
     element.style.opacity = '0';
     element.style.transform = 'translateY(30px)';
-    
+
     setTimeout(() => {
       element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
       element.style.opacity = '1';
@@ -367,7 +367,7 @@ document.addEventListener('keydown', (e) => {
     menu.classList.remove('open');
     document.body.style.overflow = '';
   }
-  
+
   // Arrow keys for carousel navigation
   if (slides.length > 0) {
     if (e.key === 'ArrowLeft') {
@@ -397,17 +397,17 @@ function enhanceAccessibility() {
     z-index: 10001;
     transition: top 0.3s;
   `;
-  
+
   skipLink.addEventListener('focus', () => {
     skipLink.style.top = '6px';
   });
-  
+
   skipLink.addEventListener('blur', () => {
     skipLink.style.top = '-40px';
   });
-  
+
   document.body.insertBefore(skipLink, document.body.firstChild);
-  
+
   // Add main content ID
   const mainContent = document.querySelector('.hero') || document.querySelector('main') || document.querySelector('.about-page') || document.querySelector('.products-page');
   if (mainContent) {
@@ -421,7 +421,7 @@ enhanceAccessibility();
 // Lazy Loading for Images
 function lazyLoadImages() {
   const images = document.querySelectorAll('img[data-src]');
-  
+
   const imageObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -432,7 +432,7 @@ function lazyLoadImages() {
       }
     });
   });
-  
+
   images.forEach(img => imageObserver.observe(img));
 }
 
@@ -442,10 +442,10 @@ lazyLoadImages();
 // Enhanced Form Validation
 function enhanceFormValidation() {
   const forms = document.querySelectorAll('form');
-  
+
   forms.forEach(form => {
     const inputs = form.querySelectorAll('input, textarea');
-    
+
     inputs.forEach(input => {
       input.addEventListener('blur', validateField);
       input.addEventListener('input', clearFieldError);
@@ -456,14 +456,14 @@ function enhanceFormValidation() {
 function validateField(e) {
   const field = e.target;
   const value = field.value.trim();
-  
+
   // Remove existing error
   clearFieldError(e);
-  
+
   // Validate based on field type
   let isValid = true;
   let errorMessage = '';
-  
+
   if (field.hasAttribute('required') && !value) {
     isValid = false;
     errorMessage = 'هذا الحقل مطلوب';
@@ -471,7 +471,7 @@ function validateField(e) {
     isValid = false;
     errorMessage = 'يرجى إدخال بريد إلكتروني صحيح';
   }
-  
+
   if (!isValid) {
     showFieldError(field, errorMessage);
   }
@@ -488,7 +488,7 @@ function clearFieldError(e) {
 
 function showFieldError(field, message) {
   field.classList.add('error');
-  
+
   const errorElement = document.createElement('div');
   errorElement.className = 'field-error';
   errorElement.textContent = message;
@@ -498,7 +498,7 @@ function showFieldError(field, message) {
     margin-top: 4px;
     font-weight: 500;
   `;
-  
+
   field.parentNode.appendChild(errorElement);
 }
 
@@ -516,3 +516,68 @@ errorStyles.textContent = `
 document.head.appendChild(errorStyles);
 
 console.log('TerraFeed Professional Enhancement Loaded ✨');
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Existing AOS initialization
+  AOS.init({ duration: 900, once: true });
+
+  // Existing Hamburger Menu Logic (simplified for demonstration)
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const navbarMenu = document.getElementById('navbar-menu');
+
+  if (hamburgerBtn) {
+    hamburgerBtn.addEventListener('click', () => {
+      navbarMenu.classList.toggle('active');
+      hamburgerBtn.classList.toggle('active');
+    });
+  }
+
+  // --- Language Switch Logic ---
+
+  const langSwitchBtn = document.getElementById('lang-switch-btn');
+  const htmlTag = document.querySelector('html');
+
+  // Function to switch language
+  function switchLanguage() {
+    const currentLang = htmlTag.getAttribute('lang') === 'ar' ? 'ar' : 'en';
+    const newLang = currentLang === 'ar' ? 'en' : 'ar';
+    const newDir = newLang === 'ar' ? 'rtl' : 'ltr';
+
+    // 1. Update HTML and Direction
+    htmlTag.setAttribute('lang', newLang);
+    htmlTag.setAttribute('dir', newDir);
+
+    // 2. Change content of all relevant elements
+    document.querySelectorAll('[data-ar], [data-en]').forEach(element => {
+      const translationKey = `data-${newLang}`;
+      const translation = element.getAttribute(translationKey);
+
+      if (translation) {
+        // For regular text content
+        if (element.tagName !== 'INPUT' && element.tagName !== 'BUTTON') {
+          element.textContent = translation;
+        }
+        // For buttons (which are also content holders)
+        else if (element.tagName === 'BUTTON' && element.id !== 'lang-switch-btn') {
+          element.textContent = translation;
+        }
+        // For input placeholders
+        else if (element.tagName === 'INPUT' && element.hasAttribute(`${newLang}-placeholder`)) {
+          element.placeholder = element.getAttribute(`${newLang}-placeholder`);
+        }
+        // For the <title> tag
+        else if (element.tagName === 'TITLE') {
+          document.title = translation;
+        }
+      }
+    });
+
+    // 3. Update the switch button text (it's swapped on the button itself)
+    langSwitchBtn.textContent = langSwitchBtn.getAttribute(`data-${currentLang}`);
+  }
+
+  // Attach event listener to the switch button
+  if (langSwitchBtn) {
+    langSwitchBtn.addEventListener('click', switchLanguage);
+  }
+});

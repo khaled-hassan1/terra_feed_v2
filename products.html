@@ -4,11 +4,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>منتجاتنا - TerraFeed</title>
+  <title data-ar="منتجاتنا - TerraFeed" data-en="Our Products - TerraFeed">منتجاتنا - TerraFeed</title>
+
+  <meta property="og:title" content="منتجات TerraFeed | اكتشف عالم البهارات الفاخرة">
+  <meta property="og:description"
+    content="تصفح مجموعتنا الكاملة من البهارات والخلطات الطبيعية والمبتكرة التي ترفع مستوى أي وجبة. جودة عالمية ونكهات أصيلة.">
+  <meta property="og:type" content="product.group">
+  <meta property="og:url" content="https://khaled-hassan1.github.io/terra_feed_v2/products.html">
+  <meta property="og:image" content="images/logo.png">
+  <meta property="og:image:alt" content="تشكيلة واسعة من بهارات تيرا فيد">
+  <meta property="og:locale" content="ar_AR">
+  <meta property="og:site_name" content="TerraFeed">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
+  <meta name="twitter:title" content="منتجات TerraFeed">
+  <meta name="twitter:description" content="تسوق أفضل البهارات والخلطات. توصيل سريع لكل مدن المملكة.">
+  <meta name="twitter:image" content="images/logo.png">
+
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script defer src="products.js"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
 </head>
 
 <body>
@@ -18,14 +39,16 @@
       <h1 class="logo">
         <a href="index.html"><img src="images/logo.png" alt="TerraFeed" class="logo-img"></a>
       </h1>
+      <button class="lang-switch" id="lang-switch-btn" data-ar="English" data-en="العربية">English</button>
+
       <button class="hamburger" id="hamburger-btn"><span></span><span></span><span></span></button>
       <nav id="navbar-menu">
         <ul>
-          <li><a href="index.html">الرئيسية</a></li>
-          <li><a href="products.html" class="active">منتجاتنا</a></li>
-          <li><a href="https://store.terrafeed.sa">المتجر</a></li>
-          <li><a href="about_us.html">من نحن</a></li>
-          <li><a href="contact.html">تواصل معنا</a></li>
+          <li><a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+          <li><a href="products.html" class="active" data-ar="منتجاتنا" data-en="Products">منتجاتنا</a></li>
+          <li><a href="https://store.terrafeed.sa" data-ar="المتجر" data-en="Store">المتجر</a></li>
+          <li><a href="about_us.html" data-ar="من نحن" data-en="About Us">من نحن</a></li>
+          <li><a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a></li>
         </ul>
       </nav>
     </div>
@@ -34,30 +57,106 @@
 
   <div class="products-page">
 
-    <!-- Header Section -->
     <section class="products-header">
-      <h1 class="products-title">منتجاتنا</h1>
-      <p class="products-subtitle">اكتشف مجموعتنا الواسعة من البهارات والخلطات المميزة</p>
+      <h1 class="products-title" data-ar="منتجاتنا" data-en="Our Products">منتجاتنا</h1>
+      <p class="products-subtitle" data-ar="اكتشف مجموعتنا الواسعة من البهارات والخلطات المميزة"
+        data-en="Explore our wide range of premium spices and unique blends">اكتشف مجموعتنا الواسعة من البهارات والخلطات
+        المميزة</p>
 
       <div class="products-filters">
-        <input type="text" id="searchBox" placeholder="🔍 ابحث عن منتج..." />
+        <input type="text" id="searchBox" placeholder="🔍 ابحث عن منتج..." data-ar-placeholder="🔍 ابحث عن منتج..."
+          data-en-placeholder="🔍 Search for a product..." />
         <div id="categoryFilters" class="category-filters">
-          <!-- JS will inject category filter buttons -->
         </div>
       </div>
     </section>
 
-    <!-- Product Container -->
     <section id="products-container">
-      <!-- JS will inject product categories & cards here -->
     </section>
 
   </div>
 
   <footer>
-    <p>© 2025 TerraFeed - جميع الحقوق محفوظة</p>
+    <p data-ar="© 2025 TerraFeed - جميع الحقوق محفوظة" data-en="© 2025 TerraFeed - All rights reserved">© 2025 TerraFeed
+      - جميع الحقوق محفوظة</p>
   </footer>
   <script src="script.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const langSwitchBtn = document.getElementById('lang-switch-btn');
+      const htmlTag = document.querySelector('html');
+
+      // دالة لتطبيق اللغة المختارة
+      function applyLanguage(lang) {
+        const dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+        // 1. تحديث HTML واتجاه الصفحة
+        htmlTag.setAttribute('lang', lang);
+        htmlTag.setAttribute('dir', dir);
+
+        // 2. تحديث محتوى جميع العناصر
+        document.querySelectorAll('[data-ar], [data-en]').forEach(element => {
+          const translationKey = `data-${lang}`;
+          const translation = element.getAttribute(translationKey);
+
+          if (translation) {
+            // للعناوين والنصوص العادية والروابط في navbar
+            if (element.tagName !== 'INPUT' && element.tagName !== 'BUTTON' && element.tagName !== 'TITLE') {
+              element.textContent = translation;
+            }
+            // لتحديث <title>
+            else if (element.tagName === 'TITLE') {
+              document.title = translation;
+            }
+            // للروابط
+            else if (element.tagName === 'A' && element.closest('#navbar-menu')) {
+              element.textContent = translation;
+            }
+          }
+        });
+
+        // 3. تحديث نص زر التبديل نفسه
+        const currentLangOnButton = lang === 'ar' ? 'en' : 'ar';
+        langSwitchBtn.textContent = langSwitchBtn.getAttribute(`data-${currentLangOnButton}`);
+      }
+
+      // دالة تبديل اللغة عند النقر على الزر
+      function switchLanguage() {
+        const currentLang = htmlTag.getAttribute('lang') === 'ar' ? 'ar' : 'en';
+        const newLang = currentLang === 'ar' ? 'en' : 'ar';
+
+        // حفظ التفضيل الجديد في التخزين المحلي
+        localStorage.setItem('langPreference', newLang);
+        applyLanguage(newLang);
+      }
+
+      // 4. تحميل تفضيل اللغة المحفوظ عند تحميل الصفحة
+      const savedLang = localStorage.getItem('langPreference');
+      if (savedLang) {
+        // يتم تطبيق اللغة المحفوظة مباشرة عند تحميل الصفحة
+        applyLanguage(savedLang);
+      } else {
+        // في حال عدم وجود تفضيل محفوظ، يتم تطبيق الإعداد الافتراضي (ar)
+        applyLanguage('ar');
+      }
+
+      // ربط الدالة بالزر
+      if (langSwitchBtn) {
+        langSwitchBtn.addEventListener('click', switchLanguage);
+      }
+
+      // شيفرة Hamburger Menu
+      const hamburgerBtn = document.getElementById('hamburger-btn');
+      const navbarMenu = document.getElementById('navbar-menu');
+      if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', () => {
+          navbarMenu.classList.toggle('active');
+          hamburgerBtn.classList.toggle('active');
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>
