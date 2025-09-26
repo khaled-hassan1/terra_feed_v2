@@ -534,7 +534,7 @@ footer a {
 
 .about-mv-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 40px;
   margin: 60px 0;
 }
@@ -1195,10 +1195,56 @@ footer a {
 
 /* Mission & Vision */
 .about-mv-grid {
-  display: grid;
+  /* Use flexbox only for responsive layout */
+  display: flex;
+  flex-wrap: wrap;
+  /* Allows cards to wrap to the next line */
   gap: 25px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content: center;
+  /* Centers cards horizontally */
+  align-items: stretch;
+  /* Ensures cards have equal height */
   margin: 40px 0;
+}
+
+.about-mv-card {
+  /* Set a minimum width and allow it to grow/shrink. 
+       This makes it responsive: it will take up full width 
+       on small screens and half-width on large screens. */
+  flex-basis: 100%;
+  /* Default to full width on mobile */
+  max-width: 500px;
+  /* Prevents cards from getting too wide on huge screens */
+  padding: 30px;
+  /* Example padding, adjust as needed */
+  text-align: center;
+  /* Center content inside the card */
+
+  /* Media query to allow side-by-side layout on tablets/desktops */
+  /* On screens 768px and up, allow them to take up roughly half the space */
+  @media (min-width: 768px) {
+    flex-basis: calc(50% - 15px);
+    /* Allows two cards plus half the gap */
+  }
+}
+
+/* Ensure the container is defined for proper spacing */
+.about-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Example card styling (you may already have this in style.css) */
+.about-mv-card i {
+  font-size: 40px;
+  color: #ff9900;
+  /* Example color */
+  margin-bottom: 10px;
+}
+
+.about-mv-card h3 {
+  margin-bottom: 15px;
 }
 
 .about-mv-card {
@@ -2022,4 +2068,16 @@ footer {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+.about-cert-img {
+    max-width: 100px; /* Adjust size for responsiveness */
+    height: auto;
+    display: block; /* Ensures centering if parent is text-align: center */
+    margin: 0 auto 10px; /* Centers the image and adds bottom margin */
+}
+
+/* Ensure the text is centered beneath the image */
+.about-cert-icon p {
+    text-align: center;
+    font-weight: bold;
 }

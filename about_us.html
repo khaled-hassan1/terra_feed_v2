@@ -137,13 +137,13 @@
       <div class="about-container" data-aos="fade-up">
         <h2 class="about-section-title" data-ar="ثقة واعتماد" data-en="Trust and Accreditation">ثقة واعتماد</h2>
         <div class="about-cert-grid">
-          <div class="about-cert-icon"><i class="fas fa-certificate"></i>
+          <div class="about-cert-icon"><img src="images/iso.jpg" style="width: 200px;" alt="iso logo" class="-cert-img">
             <p>ISO</p>
           </div>
-          <div class="about-cert-icon"><i class="fas fa-check-circle"></i>
+          <div class="about-cert-icon"><img src="images/haccp.jpg" alt="haccp logo" class="about-cert-img">
             <p>HACCP</p>
           </div>
-          <div class="about-cert-icon"><i class="fas fa-mosque"></i>
+          <div class="about-cert-icon"><img src="images/halal.jpg" alt="Halal logo" class="about-cert-img">
             <p data-ar="حلال" data-en="Halal">حلال</p>
           </div>
         </div>
@@ -156,7 +156,7 @@
         <p data-ar="دع منتجاتنا تغير تجربتك في المطبخ. الجودة تبدأ من هنا."
           data-en="Let our products transform your kitchen experience. Quality starts here.">دع منتجاتنا تغير تجربتك في
           المطبخ. الجودة تبدأ من هنا.</p>
-        <a href="store.html" class="about-btn" data-ar="تسوق الآن" data-en="Shop Now">تسوق الآن</a>
+        <a href="https://store.terrafeed.sa" class="about-btn" data-ar="تسوق الآن" data-en="Shop Now">تسوق الآن</a>
       </div>
     </section>
 
@@ -170,83 +170,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>AOS.init({ duration: 900, once: true, easing: "ease-out-cubic" });</script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const langSwitchBtn = document.getElementById('lang-switch-btn');
-      const htmlTag = document.querySelector('html');
-
-      // دالة لتطبيق اللغة المختارة
-      function applyLanguage(lang) {
-        const dir = lang === 'ar' ? 'rtl' : 'ltr';
-
-        // 1. تحديث HTML واتجاه الصفحة
-        htmlTag.setAttribute('lang', lang);
-        htmlTag.setAttribute('dir', dir);
-
-        // 2. تحديث محتوى جميع العناصر
-        document.querySelectorAll('[data-ar], [data-en]').forEach(element => {
-          const translationKey = `data-${lang}`;
-          const translation = element.getAttribute(translationKey);
-
-          if (translation) {
-            // للعناوين والنصوص العادية
-            if (element.tagName !== 'INPUT' && element.tagName !== 'BUTTON' && element.tagName !== 'TITLE') {
-              element.textContent = translation;
-            }
-            // للأزرار (باستثناء زر تبديل اللغة)
-            else if (element.tagName === 'BUTTON' && element.id !== 'lang-switch-btn') {
-              element.textContent = translation;
-            }
-            // لتحديث <title>
-            else if (element.tagName === 'TITLE') {
-              document.title = translation;
-            }
-          }
-        });
-
-        // 3. تحديث نص زر التبديل نفسه
-        const currentLangOnButton = lang === 'ar' ? 'en' : 'ar';
-        langSwitchBtn.textContent = langSwitchBtn.getAttribute(`data-${currentLangOnButton}`);
-      }
-
-      // دالة تبديل اللغة عند النقر على الزر
-      function switchLanguage() {
-        const currentLang = htmlTag.getAttribute('lang') === 'ar' ? 'ar' : 'en';
-        const newLang = currentLang === 'ar' ? 'en' : 'ar';
-
-        // حفظ التفضيل الجديد في التخزين المحلي
-        localStorage.setItem('langPreference', newLang);
-        applyLanguage(newLang);
-      }
-
-      // 4. تحميل تفضيل اللغة المحفوظ عند تحميل الصفحة
-      const savedLang = localStorage.getItem('langPreference');
-      if (savedLang) {
-        // يتم تطبيق اللغة المحفوظة مباشرة عند تحميل الصفحة
-        // ملاحظة: يتم تجاوز القيم الافتراضية في <html lang="ar" dir="rtl">
-        applyLanguage(savedLang);
-      } else {
-        // في حال عدم وجود تفضيل محفوظ، يتم تطبيق الإعداد الافتراضي (ar)
-        // وتحديث نص الزر ليتوافق مع اللغة الحالية
-        applyLanguage('ar');
-      }
-
-      // ربط الدالة بالزر
-      if (langSwitchBtn) {
-        langSwitchBtn.addEventListener('click', switchLanguage);
-      }
-
-      // (يفترض وجود شيفرة Hamburger Menu هنا)
-      const hamburgerBtn = document.getElementById('hamburger-btn');
-      const navbarMenu = document.getElementById('navbar-menu');
-      if (hamburgerBtn) {
-        hamburgerBtn.addEventListener('click', () => {
-          navbarMenu.classList.toggle('active');
-          hamburgerBtn.classList.toggle('active');
-        });
-      }
-    });
-  </script>
 </body>
 
 </html>
